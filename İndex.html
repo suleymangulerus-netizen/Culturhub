@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CulturHub – Discover Cultural Events</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/style.css">
+  <meta name="theme-color" content="#ff6f61">
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <a href="/organizer.html" class="nav-link">Organizer</a>
+      <a href="/dashboard.html" class="nav-link">Dashboard</a>
+      <a href="/profile.html" class="nav-link">Profile</a>
+    </nav>
+    <button class="btn" onclick="toggleTheme()">Toggle Theme</button>
+  </header>
+
+  <main class="container">
+    <section class="hero card">
+      <h2 data-i18n="home_title">Discover Cultural Events</h2>
+      <p class="event-meta">Find, join, and share events instantly.</p>
+      <div id="eventList"></div>
+    </section>
+
+    <section class="card ad" id="homeAdSlot">
+      <h3>Sponsored</h3>
+      <p>Ad content here</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="/privacy.html">Privacy Policy</a>
+  </footer>
+
+  <script src="/i18n.js"></script>
+  <script src="/app.js"></script>
+  <script>
+    registerServiceWorker();
+    applyTheme();
+    document.addEventListener('DOMContentLoaded', () => {
+      renderEvents();
+      renderAds();
+    });
+  </script>
+</body>
+</html>

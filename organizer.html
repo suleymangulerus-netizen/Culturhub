@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CulturHub – Organizer Panel</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/style.css">
+  <meta name="theme-color" content="#7b4397">
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <a href="/organizer.html" class="nav-link active">Organizer</a>
+      <a href="/dashboard.html" class="nav-link">Dashboard</a>
+      <a href="/profile.html" class="nav-link">Profile</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>New Event</h2>
+      <form id="organizerForm">
+        <div class="grid">
+          <input name="title" class="input" placeholder="Title" required>
+          <input name="date" type="datetime-local" class="input" placeholder="Date" required>
+          <input name="location" class="input" placeholder="Location" required>
+          <select name="category" class="input">
+            <option value="music">Music</option>
+            <option value="art">Art</option>
+            <option value="sport">Sport</option>
+            <option value="other">Other</option>
+          </select>
+          <input name="price" type="number" class="input" placeholder="Price (EUR)" min="0" step="0.01">
+          <input name="sponsor" class="input" placeholder="Sponsor name (optional)">
+        </div>
+        <textarea name="description" class="input" placeholder="Description"></textarea>
+
+        <div class="card" style="padding:.6rem;margin:.6rem 0">
+          <strong>Sustainability (Green Score)</strong><br>
+          <label><input type="checkbox" name="g_public"> Encourage public transport</label><br>
+          <label><input type="checkbox" name="g_recycle"> Recycling on site</label><br>
+          <label><input type="checkbox" name="g_waste"> Low‑waste policy</label>
+        </div>
+
+        <div class="card" style="padding:.6rem;margin:.6rem 0">
+          <strong data-i18n="poll">Poll (optional)</strong>
+          <input name="poll_q" class="input" placeholder="Poll question">
+          <input name="poll_o1" class="input" placeholder="Option 1">
+          <input name="poll_o2" class="input" placeholder="Option 2">
+          <input name="poll_o3" class="input" placeholder="Option 3">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Create Event</button>
+      </form>
+    </section>
+
+    <section class="card" style="margin-top:1rem">
+      <h2>Poster Generator</h2>
+      <button id="posterBtn" class="btn btn-primary">Generate Poster</button>
+      <canvas id="posterCanvas" width="400" height="600" style="margin-top:.8rem"></canvas>
+    </section>
+
+    <section class="card" style="margin-top:1rem">
+      <h2>Organizer Notifications</h2>
+      <input id="orgMsg" class="input" placeholder="Message to participants">
+      <button id="orgNotifyBtn" class="btn btn-primary">Send Notification</button>
+    </section>
+
+    <section class="card" style="margin-top:1rem">
+      <h2>Recent Events</h2>
+      <div id="organizerEvents"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="/privacy.html">Privacy Policy</a>
+  </footer>
+
+  <script src="/i18n.js"></script>
+  <script src="/app.js"></script>
+  <script>
+    registerServiceWorker();
+    applyTheme();
+    document.addEventListener('DOMContentLoaded', () => {
+      initOrganizer();
+    });
+  </script>
+</body>
+</html>

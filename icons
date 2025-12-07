@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="32" fill="#ff6f61"/>
+  <text x="50%" y="55%" font-size="72" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif">CH</text>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="64" fill="#4a90e2"/>
+  <text x="50%" y="55%" font-size="180" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif">CH</text>
+</svg>

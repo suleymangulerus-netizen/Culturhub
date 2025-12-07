@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CulturHub – My Profile</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/style.css">
+  <meta name="theme-color" content="#dc2430">
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <a href="/organizer.html" class="nav-link">Organizer</a>
+      <a href="/dashboard.html" class="nav-link">Dashboard</a>
+      <a href="/profile.html" class="nav-link active">Profile</a>
+    </nav>
+    <button class="btn" onclick="toggleTheme()">Toggle Theme</button>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>My Profile</h2>
+      <p id="profileStatus"></p>
+    </section>
+
+    <section class="card">
+      <h2>Connected Accounts</h2>
+      <div id="connectWrap">
+        <button class="btn btn-primary" id="connectGoogle">Connect Google</button>
+        <button class="btn btn-primary" id="connectOutlook">Connect Outlook</button>
+      </div>
+      <p id="connectStatus" class="event-meta"></p>
+    </section>
+
+    <section class="card">
+      <h2>Badges</h2>
+      <div id="badges"></div>
+      <div id="ecoBadges" style="margin-top:.5rem"></div>
+    </section>
+
+    <section class="card">
+      <h2>Recommended for You</h2>
+      <div id="recommendations"></div>
+    </section>
+
+    <section class="card">
+      <h2>Privacy Settings</h2>
+      <button id="exportData" class="btn">Export My Data</button>
+      <button id="deleteAccount" class="btn btn-danger">Delete Account</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="/privacy.html">Privacy Policy</a>
+  </footer>
+
+  <script src="/i18n.js"></script>
+  <script src="/app.js"></script>
+  <script>
+    registerServiceWorker();
+    applyTheme();
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProfile();
+      renderEcoBadges();
+      renderRecommendations('You');
+      // Connected accounts
+      document.querySelector('#connectGoogle')?.addEventListener('click', connectGoogle);
+      document.querySelector('#connectOutlook')?.addEventListener('click', connectOutlook);
+      // Privacy actions
+      bindPrivacyActions();
+    });
+  </script>
+</body>
+</html>

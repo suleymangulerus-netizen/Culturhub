@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CulturHub – Dashboard & Analytics</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/style.css">
+  <meta name="theme-color" content="#1d976c">
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <a href="/organizer.html" class="nav-link">Organizer</a>
+      <a href="/dashboard.html" class="nav-link active">Dashboard</a>
+      <a href="/profile.html" class="nav-link">Profile</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card" style="margin-top:1rem">
+      <h2>Event Trends</h2>
+      <canvas id="trendChart" width="600" height="300"></canvas>
+    </section>
+
+    <section class="card" style="margin-top:1rem">
+      <h2>Category Distribution</h2>
+      <canvas id="categoryChart" width="600" height="300"></canvas>
+    </section>
+
+    <section class="card" style="margin-top:1rem">
+      <h2>Security Logs</h2>
+      <div id="securityLogs"></div>
+    </section>
+
+    <section class="card" style="margin-top:1rem">
+      <h2>Leaderboard</h2>
+      <div id="leaderboard"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="/privacy.html">Privacy Policy</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/i18n.js"></script>
+  <script src="/app.js"></script>
+  <script>
+    registerServiceWorker();
+    applyTheme();
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTrendChart();
+      renderCategoryChart();
+      renderLeaderboard();
+      renderSecurityLogs();
+    });
+  </script>
+</body>
+</html>

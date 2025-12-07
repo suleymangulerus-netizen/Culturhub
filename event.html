@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CulturHub – Event Detail</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/style.css">
+  <meta name="theme-color" content="#4a90e2">
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <a href="/organizer.html" class="nav-link">Organizer</a>
+      <a href="/dashboard.html" class="nav-link">Dashboard</a>
+      <a href="/profile.html" class="nav-link">Profile</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2 id="eventTitle"></h2>
+      <p id="eventMeta" class="event-meta"></p>
+      <p id="eventDesc"></p>
+      <div class="actions">
+        <button class="btn btn-primary" id="registerBtn">Register</button>
+        <button class="btn" id="googleCalBtn">Add to Google Calendar</button>
+        <button class="btn" id="outlookCalBtn">Add to Outlook Calendar</button>
+        <button class="btn" id="icsBtn">Download ICS</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Deep Link</h3>
+      <p id="deepLinkWrap"></p>
+    </section>
+
+    <section class="card share">
+      <h3>Share this event</h3>
+      <div class="share-buttons">
+        <button class="btn" id="shareBtn">Native Share</button>
+        <button class="btn" id="waBtn">WhatsApp</button>
+        <button class="btn" id="fbBtn">Facebook</button>
+        <button class="btn" id="twBtn">Twitter/X</button>
+        <button class="btn" id="lnBtn">LinkedIn</button>
+      </div>
+    </section>
+
+    <section class="card chat">
+      <h3 data-i18n="chat">Event Chat</h3>
+      <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+      <div class="chat-input">
+        <input id="chatInput" class="input" placeholder="Say something…">
+        <button id="chatSend" class="btn btn-primary">Send</button>
+      </div>
+    </section>
+
+    <section class="card poll">
+      <h3 data-i18n="poll">Poll</h3>
+      <div id="pollWrap"></div>
+    </section>
+
+    <section class="card ad">
+      <h3>Sponsored</h3>
+      <p>Ad content here</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="/privacy.html">Privacy Policy</a>
+  </footer>
+
+  <script src="/i18n.js"></script>
+  <script src="/app.js"></script>
+  <script>
+    registerServiceWorker();
+    applyTheme();
+    document.addEventListener('DOMContentLoaded', () => {
+      renderEventDetail();
+    });
+  </script>
+</body>
+</html>

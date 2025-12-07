@@ -1,0 +1,121 @@
+:root {
+  --bg:#fff;
+  --text:#222;
+  --card:#ffffffcc;
+  --border:#ddd;
+  --primary:#ff6f61;
+}
+
+/* Dark mode için gradient ters çevrilebilir */
+body.dark {
+  --bg:linear-gradient(135deg, #515BD4, #8134AF, #DD2A7B, #FEDA77, #F58529);
+  --text:#fff;
+  --card:#00000066;
+  --border:#444;
+  --primary:#FEDA77;
+}
+
+body {
+  background: linear-gradient(135deg, #F58529, #FEDA77, #DD2A7B, #8134AF, #515BD4);
+  color: var(--text);
+  font:14px/1.5 system-ui, sans-serif;
+  margin:0;
+  min-height:100vh;
+}
+
+/* Navigasyon */
+.topbar {
+  position:sticky;
+  top:0;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  border-bottom:1px solid var(--border);
+  padding:.5rem 1rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.nav { display:flex; gap:.8rem; }
+.nav-link {
+  text-decoration:none;
+  color:var(--text);
+  padding:.3rem .6rem;
+  border-radius:6px;
+  transition: all .2s ease;
+}
+.nav-link.active {
+  background: linear-gradient(45deg, #DD2A7B, #FEDA77);
+  color:#fff;
+}
+
+/* Kartlar */
+.card {
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1rem;
+  margin:.8rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform .2s ease;
+}
+.card:hover { transform: scale(1.02); }
+
+/* Input */
+.input {
+  width:100%;
+  padding:.6rem;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:transparent;
+  color:var(--text);
+}
+
+/* Butonlar */
+.btn {
+  padding:.5rem .9rem;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+  transition: all .2s ease;
+}
+.btn-primary {
+  background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+  color:#fff;
+}
+.btn-primary:hover {
+  opacity:0.9;
+  transform: scale(1.05);
+}
+.btn-danger {
+  background:#DD2A7B;
+  color:#fff;
+}
+
+/* Footer */
+.footer {
+  padding:1rem;
+  text-align:center;
+  border-top:1px solid var(--border);
+  background:rgba(255,255,255,0.85);
+}
+
+/* Chat ve Poll */
+.chat-messages {
+  min-height:120px;
+  border:1px dashed var(--border);
+  padding:.6rem;
+  border-radius:8px;
+  margin-bottom:.6rem;
+  background:#fff8;
+}
+.poll-option {
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  margin:.4rem 0;
+}
+.poll-bar {
+  height:10px;
+  background: linear-gradient(90deg, #FEDA77, #DD2A7B);
+}
